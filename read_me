@@ -1,0 +1,4 @@
+
+1. Replace the folder locations in the Final_Resnet50_model_bce.ipynb file with correct locations in your google drive.
+2. There is a model_bce.pth file which is the neural network checkpoint corresponding to the results I have presented. You can crosscheck the results with this checkpoint.
+3. The final cell in the ipynb can be used to load this checkpoint to test on unseen holdout dataset(20 samples).
