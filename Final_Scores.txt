@@ -1,0 +1,5 @@
+Specificity: 0.9518072289156626
+Sensitivity: 0.9842657342657343
+Area Under Curve: ~ 1
+Accuracy on Validation dataset: 97.49%
+Accuracy on holdout dataset: 65% :(

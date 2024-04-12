@@ -1,0 +1,36 @@
+Dataset Preparation:
+- The dataset consists of resized PNG images stored in the following directory structure:
+  /content/gdrive/MyDrive/resized_png__/
+      abnormal/
+          *.png
+          *.png
+          ...
+      normal_augmented/
+          *.png
+          *.png
+          ...
+      ...
+
+Data Preprocessing Pipeline:
+- Images are loaded using torchvision's ImageFolder and transformed using the following pipeline:
+  - Convert images to tensors (transforms.ToTensor())
+  - Augmentations include random horizontal/vertical flips, rotations, color jittering, and resizing/cropping.
+
+Training Parameters/Hyper-parameters:
+- Model architecture: Pretrained ResNet-50 with the final fully connected layer modified for binary classification.
+- Train/Test split = 60:40
+- Loss function: Binary Crossentropy Loss (BCELoss) with Sigmoid activation.
+- Optimizer: Stochastic Gradient Descent (SGD) with a learning rate of 0.001 and momentum of 0.9.
+- Batch size: 8
+- Number of epochs: 40
+- Early stopping: Patience of 10 epochs
+
+Training Process:
+1. Load the pretrained ResNet-50 model and modify the final fully connected layer.
+2. Define data loaders for training and validation sets with appropriate transformations.
+3. Train the model using SGD(stochastic gradient descent) optimizer and BCELoss(binary crossentropy loss), monitoring training and validation metrics.
+4. Implement early stopping with a patience of 10 epochs to prevent overfitting.
+5. Save the best-performing model based on validation loss. The val accuracy was high.
+6. Calculate and plot the ROC curve using sklearn's roc_curve and auc functions.
+7. Calculate the Confusion matrix, sensitivity, and specificity.
+8. Test the model on holdout(unseen) data. Gave 65% accuracy only :(
